@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.crashlytics.android.Crashlytics;
 import com.github.florent37.beautifulviewpager.sample.fragment.ScrollViewFragment;
@@ -17,7 +20,7 @@ import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity {
 
-    int pageCount = 10;
+    int pageCount = 3;
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -38,8 +41,26 @@ public class MainActivity extends AppCompatActivity {
         hollyViewPager.getViewPager().setPageMargin(getResources().getDimensionPixelOffset(R.dimen.viewpager_margin));
         hollyViewPager.setConfigurator(new HollyViewPagerConfigurator() {
             @Override
+            public View[] getHeaderViews() {
+                View thumbnail1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail, null);
+                ImageView thumbnailImage = (ImageView) thumbnail1.findViewById(R.id.thumbnail);
+                thumbnailImage.setImageResource(R.drawable.background1);
+
+                View thumbnail2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail, null);
+                thumbnailImage = (ImageView) thumbnail2.findViewById(R.id.thumbnail);
+                thumbnailImage.setImageResource(R.drawable.background2);
+
+                View thumbnail3 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail, null);
+                thumbnailImage = (ImageView) thumbnail3.findViewById(R.id.thumbnail);
+                thumbnailImage.setImageResource(R.drawable.background3);
+
+                return new View[]{thumbnail1, thumbnail2, thumbnail3};
+            }
+
+            @Override
             public float getHeightPercentForPage(int page) {
-                return ((page + 4) % 10) / 10f;
+                // return ((page + 4) % 10) / 10f;
+                return -1;
             }
         });
 

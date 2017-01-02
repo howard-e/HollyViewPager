@@ -37,9 +37,11 @@ public class HeaderHolder {
     }
 
     public void setHeightPercent(float percent) {
-        ViewGroup.LayoutParams layoutParams = card.getLayoutParams();
-        layoutParams.height = (int) (view.getLayoutParams().height * percent);
-        card.setLayoutParams(layoutParams);
+        if (percent != -1) {
+            ViewGroup.LayoutParams layoutParams = card.getLayoutParams();
+            layoutParams.height = (int) (view.getLayoutParams().height * percent);
+            card.setLayoutParams(layoutParams);
+        }
     }
 
     public void enable() {

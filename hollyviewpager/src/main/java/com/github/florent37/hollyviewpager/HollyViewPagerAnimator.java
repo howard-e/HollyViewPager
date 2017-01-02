@@ -100,9 +100,17 @@ public class HollyViewPagerAnimator implements ViewPager.OnPageChangeListener {
 
         LayoutInflater layoutInflater = LayoutInflater.from(hvp.getContext());
         for (int i = 0; i < adapter.getCount(); ++i) {
-            View view = layoutInflater.inflate(R.layout.hvp_header_card, hvp.headerLayout, false);
-            hvp.headerLayout.addView(view);
+            View view /* = layoutInflater.inflate(R.layout.hvp_header_card, hvp.headerLayout, false); */;
+            if (hvp.configurator.getHeaderViews() != null && hvp.configurator.getHeaderViews().length > 0) {
+                if (i < hvp.configurator.getHeaderViews().length)
+                    view = hvp.configurator.getHeaderViews()[i];
+                else
+                    view = layoutInflater.inflate(R.layout.hvp_header_card, hvp.headerLayout, false);
+            } else {
+                view = layoutInflater.inflate(R.layout.hvp_header_card, hvp.headerLayout, false);
+            }
 
+            hvp.headerLayout.addView(view);
             HeaderHolder headerHolder = new HeaderHolder(view);
             hvp.headerHolders.add(headerHolder);
 
