@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         hollyViewPager.setConfigurator(new HollyViewPagerConfigurator() {
             @Override
             public View[] getHeaderViews() {
+                // Custom header MUST have a cardview w/ id 'card' and a textview with id 'title' for now
                 View thumbnail1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail, null);
                 ImageView thumbnailImage = (ImageView) thumbnail1.findViewById(R.id.thumbnail);
                 thumbnailImage.setImageResource(R.drawable.background1);
