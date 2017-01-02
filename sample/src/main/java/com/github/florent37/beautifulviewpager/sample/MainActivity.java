@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.crashlytics.android.Crashlytics;
-import com.github.florent37.beautifulviewpager.sample.fragment.ScrollViewFragment;
+import com.github.florent37.beautifulviewpager.sample.fragment.ScrollBigImageFragment;
 import com.github.florent37.hollyviewpager.HollyViewPager;
 import com.github.florent37.hollyviewpager.HollyViewPagerConfigurator;
 
@@ -43,15 +43,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public View[] getHeaderViews() {
                 // Custom header MUST have a cardview w/ id 'card' and a textview with id 'title' for now
-                View thumbnail1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail, null);
+                View thumbnail1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail_header, null);
                 ImageView thumbnailImage = (ImageView) thumbnail1.findViewById(R.id.thumbnail);
                 thumbnailImage.setImageResource(R.drawable.background1);
 
-                View thumbnail2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail, null);
+                View thumbnail2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail_header, null);
                 thumbnailImage = (ImageView) thumbnail2.findViewById(R.id.thumbnail);
                 thumbnailImage.setImageResource(R.drawable.background2);
 
-                View thumbnail3 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail, null);
+                View thumbnail3 = LayoutInflater.from(MainActivity.this).inflate(R.layout.thumbnail_header, null);
                 thumbnailImage = (ImageView) thumbnail3.findViewById(R.id.thumbnail);
                 thumbnailImage.setImageResource(R.drawable.background3);
 
@@ -66,9 +66,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         hollyViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+
+            int[] imageViews = {R.drawable.background1, R.drawable.background2, R.drawable.background3};
+
             @Override
             public Fragment getItem(int position) {
-                return ScrollViewFragment.newInstance((String) getPageTitle(position));
+                // return ScrollViewFragment.newInstance((String) getPageTitle(position));
+                return ScrollBigImageFragment.newInstance((String) getPageTitle(position), getImage(position));
             }
 
             @Override
@@ -79,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public CharSequence getPageTitle(int position) {
                 return "TITLE " + position;
+            }
+
+            public int getImage(int position) {
+                return imageViews[position];
             }
         });
     }
