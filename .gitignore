@@ -7,15 +7,19 @@
 
 # Java class files
 *.class
+*.iml
+
+.DS_Store
+/captures
 
 # Generated files
 bin/
 gen/
+out/
 
 # Gradle files
 .gradle/
 build/
-/*/build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -25,3 +29,14 @@ proguard/
 
 # Log Files
 *.log
+/.idea
+/app/src/main/res/values/secure-strings.xml
+
+# Android Studio
+/gradle
+# /build.gradle - Uncomment if need be
+.navigation/
+captures/
+
+#Keystore files
+*.jks
