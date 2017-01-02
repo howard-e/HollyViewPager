@@ -72,7 +72,7 @@ public class HollyViewPagerAnimator implements ViewPager.OnPageChangeListener {
             if (verticalOffset < finalHeaderHeight) {
                 float percent = (initialHeaderHeight - verticalOffset) / initialHeaderHeight;
 
-                int page = Math.max(0,oldpage);
+                int page = Math.max(0, oldpage);
 
                 //headerLayout.setPivotY(0);
                 ViewHelper.setPivotX(hvp.headerLayout, hvp.headerLayout.getChildAt(page).getLeft());
@@ -81,7 +81,7 @@ public class HollyViewPagerAnimator implements ViewPager.OnPageChangeListener {
                 ViewHelper.setScaleY(hvp.headerLayout, percent);
                 ViewHelper.setTranslationY(hvp.headerLayout, verticalOffset / 2);
 
-                ViewHelper.setTranslationX(hvp.headerLayout,1.5f * verticalOffset);
+                ViewHelper.setTranslationX(hvp.headerLayout, 1.5f * verticalOffset);
 
                 float alphaPercent = 1 - verticalOffset / finalHeaderHeight;
                 for (int i = 0, count = hvp.headerHolders.size(); i < count; ++i) {
@@ -94,6 +94,7 @@ public class HollyViewPagerAnimator implements ViewPager.OnPageChangeListener {
         }
     }
 
+    // TODO: Need to customize header to have slide-show images here
     protected void fillHeader(PagerAdapter adapter) {
         hvp.headerLayout.removeAllViews();
 

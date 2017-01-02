@@ -58,7 +58,7 @@ public class HeaderHolder {
     }
 
     public void animateEnabled(boolean enabled) {
-        if(animator != null) {
+        if (animator != null) {
             animator.cancel();
             animator = null;
         }
@@ -87,6 +87,4 @@ public class HeaderHolder {
         Rect rect = new Rect();
         return view.getGlobalVisibleRect(rect);
     }
-
-
 }

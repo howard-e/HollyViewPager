@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 
 import com.github.florent37.beautifulviewpager.sample.R;
 import com.github.florent37.beautifulviewpager.sample.recycler.RecyclerAdapter;
-import com.github.florent37.hollyviewpager.HollyViewPager;
 import com.github.florent37.hollyviewpager.HollyViewPagerBus;
 
 import butterknife.Bind;
@@ -34,11 +33,10 @@ public class RecyclerViewFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new RecyclerAdapter());
-
         HollyViewPagerBus.registerRecyclerView(getActivity(), recyclerView);
     }
 }

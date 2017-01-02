@@ -18,7 +18,7 @@ public class HollyViewPagerSettings {
 
             {
                 headerHeightPx = styledAttrs.getDimensionPixelOffset(R.styleable.HollyViewPager_hvp_headerHeight, -1);
-                if(headerHeightPx == -1){
+                if (headerHeightPx == -1) {
                     headerHeightPx = context.getResources().getDimensionPixelOffset(R.dimen.header_height);
                 }
                 headerHeight = Math.round(pxToDp(headerHeightPx, context)); //convert to dp

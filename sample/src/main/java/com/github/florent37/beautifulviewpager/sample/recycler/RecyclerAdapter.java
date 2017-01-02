@@ -17,24 +17,27 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        switch (position){
-            case 0: return TYPE_HEADER;
-            default: return TYPE_CELL;
+        switch (position) {
+            case 0:
+                return TYPE_HEADER;
+            default:
+                return TYPE_CELL;
         }
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int type) {
         View view;
-        switch (type){
+        switch (type) {
             case TYPE_HEADER:
-                view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hvp_header_placeholder,viewGroup,false);
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hvp_header_placeholder, viewGroup, false);
                 break;
             default:
-                view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.content_card,viewGroup,false);
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.content_card, viewGroup, false);
                 break;
         }
-        return new RecyclerView.ViewHolder(view) {};
+        return new RecyclerView.ViewHolder(view) {
+        };
     }
 
     @Override

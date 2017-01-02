@@ -19,23 +19,23 @@ public class HollyViewPagerBus {
         map.put(context, hollyViewPager);
     }
 
-    public static void unregister(Context context){
+    public static void unregister(Context context) {
         map.remove(context);
     }
 
     public static void registerScrollView(Context context, ObservableScrollView scrollView) {
         HollyViewPager hollyViewPager = map.get(context);
-        if(hollyViewPager != null)
+        if (hollyViewPager != null)
             hollyViewPager.registerScrollView(scrollView);
     }
 
     public static void registerRecyclerView(Context context, RecyclerView recyclerView) {
         HollyViewPager hollyViewPager = map.get(context);
-        if(hollyViewPager != null)
+        if (hollyViewPager != null)
             hollyViewPager.registerRecyclerView(recyclerView);
     }
 
-    public static HollyViewPager get(Context context){
+    public static HollyViewPager get(Context context) {
         return map.get(context);
     }
 }

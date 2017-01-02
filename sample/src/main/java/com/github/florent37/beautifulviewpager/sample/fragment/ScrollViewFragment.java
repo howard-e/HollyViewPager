@@ -26,9 +26,9 @@ public class ScrollViewFragment extends Fragment {
     @Bind(R.id.title)
     TextView title;
 
-    public static ScrollViewFragment newInstance(String title){
+    public static ScrollViewFragment newInstance(String title) {
         Bundle args = new Bundle();
-        args.putString("title",title);
+        args.putString("title", title);
         ScrollViewFragment fragment = new ScrollViewFragment();
         fragment.setArguments(args);
         return fragment;
@@ -46,7 +46,6 @@ public class ScrollViewFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         title.setText(getArguments().getString("title"));
-
         HollyViewPagerBus.registerScrollView(getActivity(), scrollView);
     }
 }

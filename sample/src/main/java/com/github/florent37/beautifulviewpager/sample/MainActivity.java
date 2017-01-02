@@ -39,16 +39,13 @@ public class MainActivity extends AppCompatActivity {
         hollyViewPager.setConfigurator(new HollyViewPagerConfigurator() {
             @Override
             public float getHeightPercentForPage(int page) {
-                return ((page+4)%10)/10f;
+                return ((page + 4) % 10) / 10f;
             }
         });
 
         hollyViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                //if(position%2==0)
-                //    return new RecyclerViewFragment();
-                //else
                 return ScrollViewFragment.newInstance((String) getPageTitle(position));
             }
 
@@ -63,6 +60,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
